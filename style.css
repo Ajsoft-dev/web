@@ -18,6 +18,7 @@
 
 }
 
+
 /* ----- BASE ----- */
 *{
     margin: 0;
@@ -54,13 +55,16 @@ html{
     margin: 20px auto;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: var(--color-white);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     border: 1px solid #ddd;
+    
 }
 .work-item img{
     max-width: 100%;
     height: auto;
     border-radius: 4px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
 }
 .work-item p{
     font-size: 00.9em;
@@ -173,6 +177,7 @@ nav{
 /* ----- WRAPPER DESIGN ----- */
 .wrapper{
     padding-inline: 10vw;
+    padding-top: 90px; /* ensure content isn't hidden behind fixed navbar */
 }
 
 /* ----- FEATURED BOX ----- */
@@ -186,35 +191,29 @@ nav{
 /* ----- FEATURED TEXT BOX ----- */
 .featured-text{
     position: relative;
-    display: flex;
     justify-content: center;
     align-content: center;
     min-height: 80vh;
-    flex-direction: column;
+    flex-direction:column;
     width: 50%;
     padding-left: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
-.featured-text-card span{
-    background: var(--third-color);
-    color: var(--color-white);
-    padding: 3px 8px;
-    font-size: 15px;
-    border-radius: 5px;
-}
-.featured-name{
-    font-size: 80px;
-    font-weight: 600;
-    color: var(--text-color-second);
-    margin-block: 20px;
-}
-.typedText{
-    text-transform: capitalize;
-    color: var(--text-color-third);
-}
+/* Featured text content (natural document order) */
+.featured-text-card {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 8px;
+  max-width: 100%;
+  margin-bottom: 6px; /* small gap under the badge */
+} 
 .featured-text-info{
     font-size: 15px;
     margin-bottom: 30px;
     color: var(--text-color-second);
+    max-width: 500px; /* create uniform text block */
+    text-align: justify; /* distribute text evenly */
 }
 .featured-text-btn{
     display: flex;
@@ -229,8 +228,26 @@ nav{
 }
 .social_icons{
     display: flex;
-    margin-top: 5em;
+    margin-top: 4em;
     gap: 30px;
+}
+.featured-text-card span{
+    background: var(--third-color);
+    color: var(--color-white);
+    padding: 3px 8px;
+    font-size: 15px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+.featured-name{
+    font-size: 80px;
+    font-weight: 600;
+    color: var(--text-color-second);
+    margin-block: 8px; /* reduced spacing */
+}
+.typedText{
+    text-transform: capitalize;
+    color: var(--text-color-third);
 }
 .icon{
     display: flex;
@@ -253,6 +270,7 @@ nav{
     align-content: center;
     min-height: 80vh;
     width: 50%;
+    margin-top: 3em;
 }
 .image{
     margin: auto 0;
@@ -276,7 +294,7 @@ nav{
    bottom: 0;
    left: 50%;
    translate: -50%;
-   display: flex;
+   display: none; /* hide scroll button */
    justify-content: center;
    align-items: center;
    width: 150px;
@@ -311,7 +329,13 @@ nav{
 .top-header{
     text-align: center;
     margin-bottom: 5em;
+    margin-top: 18em;
 }
+.top-head{
+    text-align: center;
+    margin-bottom: 5em;
+}
+
 .top-header h1{
     font-weight: 600;
     color: var(--text-color-second);
@@ -576,7 +600,7 @@ footer{
         justify-content: center;
         align-items: center;
         background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(20px);
+        backdrop-filter:  blur(20px);
         width: 100%;
         min-height: 450px;
         height: 90vh;
@@ -644,6 +668,7 @@ footer{
 @media only screen and (max-width: 540px){
     .featured-name{
         font-size: 40px;
+        margin-block: 6px; /* smaller gap on small screens */
     }
     .project-box{
         width: 100%;
